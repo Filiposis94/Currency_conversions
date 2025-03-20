@@ -1,0 +1,21 @@
+*{
+  box-sizing: border-box;
+}
+body{
+  text-align: center;
+}
+h1{
+  color:#522473;
+}
+.container{
+  margin: 0 auto;
+  max-width: 1100px;
+}
+.btn-submit{
+  background-color:#522473;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
