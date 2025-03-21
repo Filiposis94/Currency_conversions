@@ -7,9 +7,11 @@ In the project directory run
 ### `npm install`
 This will install all packages
 
-Create .env file with variable FIXER_API_KEY
+Create .env file with variable FIXER_API_KEY and MONGO_URI
 If you have account on [www.fixer.io](https://fixer.io/) grab your KEY and assign it to the FIXER_API_KEY variable.
 If you don't have the account, create one and and assign it to the FIXER_API_KEY variable.
+
+In similiar fashion get your credentials from MONGODB and asign it to the variable.
 
 Then run comand
 ### `npm start`

@@ -19,6 +19,7 @@
     "express-rate-limit": "^7.5.0",
     "helmet": "^8.1.0",
     "http-status-codes": "^2.3.0",
+    "mongoose": "^8.12.1",
     "xss-clean": "^0.1.4"
   },
   "devDependencies": {

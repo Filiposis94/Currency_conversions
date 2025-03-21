@@ -8,6 +8,9 @@ const app = express();
 const dotenv = require('dotenv');
 dotenv.config();
 const path = require('path');
+
+const connectDB = require('./db/connect');
+
 // IMPORT ROUTES AND MIDDLEWARE
 const exchangeRouter = require('./routes/exchange');
 
@@ -43,6 +46,7 @@ app.use(errorHandlerMiddleware);
 const port = process.env.PORT || 4000;
 const start = async ()=>{
     try {
+        await connectDB(process.env.MONGO_URI);
         app.listen(port, ()=>{
             console.log(`Server listening on port ${port}...`);
         });

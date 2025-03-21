@@ -8,10 +8,11 @@ function App() {
     targetCurr: 'USD'
   })
   const [symbols, setSymbols] = React.useState([]);
+  const [totalStats, setTotalStats] = React.useState();
   const [message, setMessage] = React.useState({
     isShown:false,
     text:''
-  })  
+  });
   // EVENT HANDLERS
   const handleChange = (event)=>{
     const {name, value, type} = event.target;
@@ -37,8 +38,12 @@ function App() {
   const handleSubmit = async ()=>{
     try {
       const res = await axios.get(`/api/v1/exchange?amount=${settings.amount}&targetCurr=${settings.targetCurr}`);
-      const {exchangedAmount, targetCurr} = res.data
-      handleMessage(`Exchange succesfull. ${exchangedAmount}${targetCurr} added to your balance.`)
+      const {exchangedAmount, targetCurr, totalAmount, totalTransactions} = res.data
+      handleMessage(`Exchange succesfull. ${exchangedAmount}${targetCurr} added to your balance.`);
+      setTotalStats({
+        totalAmount,
+        totalTransactions
+      })
     } catch (error) {
       console.log(error);
       handleMessage(error.response.data.msg);
@@ -78,6 +83,7 @@ function App() {
       {targetCurrInput}
       <p><button className="btn-submit" onClick={handleSubmit}>Exchange</button></p>
       {message.isShown && <p>{message.text}</p>}
+      {totalStats && <p>Total amount exchanged is {totalStats.totalAmount} EUR in {totalStats.totalTransactions} transactions.</p>}
     </div>
     
   );
