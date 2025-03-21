@@ -13,7 +13,6 @@ const getExchange = async (req, res) =>{
     let newTotalTransactions;
 
     const prevData = await User.find();
-    console.log(prevData);
     
     if(prevData.length>0){
         newTotalAmount =  prevData[0].totalAmount + Number(amount);
